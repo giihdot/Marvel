@@ -1,0 +1,28 @@
+.naveg {
+  background-color: #d4aa00; /* dourado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.naveg a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover */
+.naveg a:hover {
+  background-color:#d10000;
+}
+
+/* Ativo Manual (opcional) */
+.naveg a.active {
+  background-color: #d10000;
+}

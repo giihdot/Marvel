@@ -1,0 +1,122 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Título */
+.titulo {
+  text-align: center;
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+/* Barra de busca */
+.barra-busca {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-busca {
+  padding: 8px;
+  border: 2px solid #a00;
+  width: 300px;
+  border-radius: 4px;
+}
+
+.btn-buscar,
+.btn-limpar {
+  padding: 8px 16px;
+  background-color: #a00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-buscar:hover,
+.btn-limpar:hover {
+  background-color: #d33;
+}
+
+/* Mensagem de erro */
+.erro {
+  color: red;
+  text-align: center;
+}
+
+/* Área dos heróis */
+.area-herois {
+  border: 2px solid #a00;
+  padding: 20px;
+}
+
+.heroi {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.heroi-img img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  background-color: #a00;
+  border-radius: 8px;
+}
+
+.heroi-info h3 {
+  margin: 0;
+}
+
+.heroi-info p {
+  margin: 6px 0;
+}
+
+/* Botão favoritar */
+.btn-favoritar {
+  background-color: #a00;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-favoritar:hover {
+  opacity: 0.9;
+}
+
+.btn-favoritar.favoritado {
+  background-color: #4caf50;
+}
+
+/* Área dos favoritos */
+.area-favoritos {
+  border: 2px solid #a00;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.lista-favoritos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.fav-item {
+  width: 150px;
+  text-align: center;
+}
+
+.fav-item img {
+  width: 100%;
+  border-radius: 8px;
+}

@@ -5,6 +5,8 @@ import Home from './Pages/Home';
 import ListaDePersonagens from "./Components/ListaPersonagem";
 import PortalDimensional from "./Pages/Portaldimensional";
 import "./App.css";
+import './Components/Navbar.css'
+import Header from "./Components/Header";
 
 
 <Route path="/portal" element={<PortalDimensional />} />
@@ -12,9 +14,9 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
+    <Header/>
       <nav className="naveg">
         <Link to="/"> 🛡️ MARVEL </Link>
-        <Link to="/herois"> HERÓIS </Link>
         <Link to="/buscaHerois"> BUSCA HERÓIS </Link>
         <Link to="/listadepersonagens"> LISTA DE PERSONAGENS </Link>
         <Link to="/portal">PORTAL DIMENSIONAL</Link>
