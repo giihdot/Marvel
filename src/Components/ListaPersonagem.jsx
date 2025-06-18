@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 // Importa o Axios para fazer requisições HTTP
 import axios from 'axios';
 // Importa o md5 para gerar o hash de autenticação exigido pela API da Marvel
