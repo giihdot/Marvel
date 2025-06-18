@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 // Importa o md5 para gerar o hash de autenticação exigido pela API da Marvel
 import md5 from 'md5';
+import './ListaPersonagem.css'
 
 const PUBLIC_KEY = '3e8bef26ce91bf500ab574be3cc76285';
 const PRIVATE_KEY = '450a95fff14e78a0aa9686b4d4889bfd52e90435';

@@ -20,10 +20,6 @@ export default function PortalDimensional() {
         </ul>
       </div>
 
-      <p style={{ marginTop: "20px" }}>
-        📸 <strong>Entrega:</strong> Tire print da tela de detalhes de dois heróis e anote a curiosidade de cada um!
-      </p>
-
       <Link to="/listadepersonagens" style={{ marginTop: "20px", display: "inline-block", padding: "10px 20px", backgroundColor: "#e62429", color: "#fff", borderRadius: "5px", textDecoration: "none" }}>
         Começar Exploração
       </Link>

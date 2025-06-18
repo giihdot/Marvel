@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+// import Favoritos from "./Pages/Favoritos"
 import BuscaHerois from "./Components/BuscaHerois";
 import Detalhes from "./Components/DetalhesHeroi";
-import Home from './Pages/Home';
 import ListaDePersonagens from "./Components/ListaPersonagem";
 import PortalDimensional from "./Pages/Portaldimensional";
 import "./App.css";
@@ -14,8 +14,9 @@ function App() {
     <BrowserRouter>
     <Header/>
       <nav className="naveg">
-        <Link to="/">  MARVEL </Link>
-        <Link to="/buscaHerois"> BUSCA HERÓIS </Link>
+        <Link to="/"> MARVEL </Link>
+        {/* <Link to="/favoritos"> FAVORITOS </Link> */}
+        <Link to="/buscaHerois"> BUSCA HEROIS </Link>
         <Link to="/listadepersonagens"> LISTA DE PERSONAGENS </Link>
         <Link to="/portal">PORTAL DIMENSIONAL</Link>
         <Link path="/portal" element={<PortalDimensional />} />
@@ -23,7 +24,7 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/favoritos" element={<Favoritos/>} /> */}
         <Route path="/buscaHerois" element={<BuscaHerois />} />
         <Route path="/detalhes" element={<Detalhes />} />
         <Route path="/listadepersonagens" element={<ListaDePersonagens />} />
