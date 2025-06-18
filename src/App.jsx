@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
-import Herois from "./Components/Herois"
-import Favoritos from "./Pages/Favoritos"
+// import Favoritos from "./Pages/Favoritos"
 import BuscaHerois from "./Components/BuscaHerois"
 import Detalhes from "./Components/DetalhesHeroi"
 import ListaDePersonagens from "./Components/ListaPersonagem"
@@ -19,8 +18,8 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path="/" element={<Herois />} />
-        <Route path="/favoritos" element={<Favoritos/>} />
+        {/* <Route path="/" element={<Herois />} /> */}
+        {/* <Route path="/favoritos" element={<Favoritos/>} /> */}
         <Route path="/buscaHerois" element={<BuscaHerois/>} />
         <Route path="/detalhes" element={<Detalhes/>} />
         <Route path="/listadepersonagens" element={<ListaDePersonagens/>} />
