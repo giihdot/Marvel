@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 export default function PortalDimensional() {
   
   return (
-    <div style={{ padding: "20px", fontFamily: "sans-serif", textAlign: "center" }}> // Define um contêiner com estilo de padding, fonte e alinhamento central
-      <h1 style={{ fontSize: "2.5rem", color: "#e62429" }}> PORTAL DIMENSIONAL </h1> // Título principal com tamanho de fonte e cor
-      <p style={{ fontSize: "1.1rem", marginBottom: "20px" }}> // Parágrafo com tamanho de fonte e margem inferior
-        O Multiverso está instável! Sua missão é explorar duas realidades diferentes acessando a
-        <strong> página de detalhes de dois heróis distintos</strong>. 
+    <div style={{ padding: "20px", fontFamily: "sans-serif", textAlign: "center" }}>
+      <h1 style={{ fontSize: "2.5rem", color: "#e62429" }}> PORTAL DIMENSIONAL </h1> 
+      <p style={{ fontSize: "1.1rem", marginBottom: "20px" }}> 
+        <strong> página de detalhes de dois heróis distintos</strong>
       </p>
       
       <p>🚀 Encontre curiosidades em cada herói. Se não houver descrição, invente uma!</p>
@@ -22,7 +21,7 @@ export default function PortalDimensional() {
         </ul>
       </div>
 
-      <Link to="/listadepersonagens" style={{ marginTop: "20px", display: "inline-block", padding: "10px 20px", backgroundColor: "#e62429", color: "#fff", borderRadius: "5px", textDecoration: "none" }}> // Link para a página de lista de personagens com estilo de margem superior, exibição em bloco, padding, cor de fundo, cor do texto, bordas arredondadas e sem sublinhado
+      <Link to="/listadepersonagens" style={{ marginTop: "20px", display: "inline-block", padding: "10px 20px", backgroundColor: "#e62429", color: "#fff", borderRadius: "5px", textDecoration: "none" }}> 
         Começar Exploração 
       </Link> 
     </div> 
