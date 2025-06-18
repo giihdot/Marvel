@@ -1,140 +1,64 @@
-// // Importando hooks do React
-// import { useState, useEffect } from 'react';
-// // Importando o pacote md5 para gerar o hash exigido pela API da Marvel
-// import md5 from 'md5';
-
-// // Chaves da API da Marvel
-// const publicKey = '3e8bef26ce91bf500ab574be3cc76285';
-// const privateKey = '450a95fff14e78a0aa9686b4d4889bfd52e90435';
-
-// // Criando o componente ListaPersonagens
-// export default function ListaPersonagens({ busca }) {
-//   // Criando o estado para armazenar os personagens
-//   const [personagens, setPersonagens] = useState([]);
-
-//   // useEffect para executar a busca quando o texto da busca mudar
-//   useEffect(() => {
-//     // Função para buscar os personagens na API da Marvel
-//     async function buscarPersonagens() {
-//       // Criando um timestamp (tempo atual em milissegundos)
-//       const ts = new Date().getTime();
-//       // Criando o hash MD5 usando ts + chave privada + chave pública
-//       const hash = md5(ts + privateKey + publicKey);
-
-//       // Montando a URL da requisição para a Marvel
-//       const url = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${busca}&ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=10`;
-
-//       try {
-//         // Fazendo a requisição para a API
-//         const resposta = await fetch(url);
-//         // Convertendo a resposta em JSON
-//         const dados = await resposta.json();
-//         // Salvando os personagens encontrados no estado
-//         setPersonagens(dados.data.results);
-//       } catch (erro) {
-//         // Se der erro, exibe no console
-//         console.log('Erro:', erro);
-//       }
-//     }
-
-//     // Se o texto da busca tiver pelo menos 2 letras, faz a busca
-//     if (busca.length >= 2) {
-//       buscarPersonagens();
-//     } else {
-//       // Se não, limpa a lista
-//       setPersonagens([]);
-//     }
-//   }, [busca]); // Executa o useEffect sempre que o "busca" mudar
-
-//   // O que será exibido na tela
-//   return (
-//     <div>
-//       {/* Se não tiver personagens, mostra uma mensagem */}
-//       {personagens.length === 0 && <p>Digite um nome para buscar</p>}
-
-//       {/* Listando cada personagem */}
-//       {personagens.map(function (p) {
-//         return (
-//           <div key={p.id}>
-//             {/* Nome do personagem */}
-//             <p>Nome: {p.name}</p>
-
-//             {/* Imagem do personagem */}
-//             <img
-//               src={p.thumbnail.path + '.' + p.thumbnail.extension}
-//               alt={p.name}
-//               width="100"
-//             />
-
-//             {/* Descrição ou mensagem de ausência de descrição */}
-//             <p>{p.description || 'Sem descrição.'}</p>
-
-//             {/* Linha separadora */}
-//             <hr />
-//           </div>
-//         );
-//       })}
-//     </div>
-//   );
-// }
-
-
-
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+// Importa o Axios para fazer requisições HTTP
+import axios from 'axios';
+// Importa o md5 para gerar o hash de autenticação exigido pela API da Marvel
 import md5 from 'md5';
 
-const publicKey = '3e8bef26ce91bf500ab574be3cc76285';
-const privateKey = '450a95fff14e78a0aa9686b4d4889bfd52e90435';
+const PUBLIC_KEY = '3e8bef26ce91bf500ab574be3cc76285';
+const PRIVATE_KEY = '450a95fff14e78a0aa9686b4d4889bfd52e90435';
 
-export default function ListaPersonagens({ termoBusca }) {
-  const [personagens, setPersonagens] = useState([]);
-  const [carregando, setCarregando] = useState(false);
+const MarvelCharacters = () => {
+  const [characters, setCharacters] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function buscarPersonagens() {
-      if (!termoBusca) return;
-
-      setCarregando(true);
-
+    const fetchCharacters = async () => {
+      // Gera um timestamp atual, exigido pela Marvel
       const ts = new Date().getTime();
-      const hash = md5(ts + privateKey + publicKey);
+      // Gera o hash md5 com base no timestamp, chave privada e chave pública
+      const hash = md5(ts + PRIVATE_KEY + PUBLIC_KEY);
+      // Monta a URL da requisição com os parâmetros obrigatórios e o limite de 20 personagens
+      const url = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&limit=20`;
 
-      const url = `https://gateway.marvel.com/v1/public/characters?name=${termoBusca}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
-
-      try {
-        const resposta = await fetch(url);
-        const dados = await resposta.json();
-        setPersonagens(dados.data.results);
-      } catch (erro) {
-        console.log('Erro ao buscar personagens:', erro);
+    try {
+        // Faz a requisição GET à API da Marvel
+        const response = await axios.get(url);
+        // Salva os personagens retornados no estado
+        setCharacters(response.data.data.results);
+      } catch (error) {
+        // Em caso de erro, exibe no console
+        console.error('Erro ao buscar personagens:', error);
       } finally {
-        setCarregando(false);
+        // Após a requisição (com sucesso ou erro), desativa o loading
+        setLoading(false);
       }
-    }
+    };
 
-    buscarPersonagens();
-  }, [termoBusca]);
+// Executa a função de busca
+    fetchCharacters();
+  }, []); // Executa apenas uma vez ao montar (array de dependências vazio)
 
-  if (carregando) {
-    return <p>Carregando...</p>;
-  }
+  if (loading) return <p>Carregando personagens...</p>;
 
+// Retorna o conteúdo com os personagens da Marvel
   return (
     <div>
-      {personagens.length === 0 && <p>Nenhum personagem encontrado.</p>}
-
-      {personagens.map((p) => (
-        <div key={p.id}>
-          <p>Nome: {p.name}</p>
-          <img
-            src={`${p.thumbnail.path}.${p.thumbnail.extension}`}
-            alt={p.name}
-            width="100"
-          />
-          <p>{p.description || 'Sem descrição.'}</p>
-          <hr />
-        </div>
-      ))}
+      <h1>Personagens da Marvel</h1>
+      <ul>
+        {characters.map((char) => (
+          <li>
+            <h2>{char.name}</h2>
+            <img
+              src={`${char.thumbnail.path}.${char.thumbnail.extension}`} // Monta o caminho completo da imagem (path + extension)
+              alt={char.name} // Texto alternativo para a imagem (usando o nome do personagem)
+            />
+            <p>{char.description || 'Sem descrição disponível.'}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
+
+export default MarvelCharacters;
+
