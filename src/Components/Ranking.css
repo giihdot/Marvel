@@ -1,0 +1,82 @@
+/* Container principal */
+.ranking-container {
+  background-color: #f5f5f5;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 500px;
+  margin: 30px auto;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+/* Título principal */
+.ranking-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #d32f2f;
+}
+
+/* Botões de voto */
+.ranking-container button {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.ranking-container button:hover {
+  background-color: #b71c1c;
+}
+
+/* Subtítulo do ranking */
+.ranking-container h3 {
+  margin-top: 30px;
+  font-size: 20px;
+  color: #333;
+}
+
+/* Lista do ranking */
+.ranking-container ol {
+  padding-left: 0;
+  list-style: none;
+  margin-top: 10px;
+}
+
+.ranking-container li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 6px 0;
+  font-size: 16px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+/* Ícones do troféu */
+.ranking-container li::before {
+  content: "⭐";
+  margin-right: 10px;
+}
+
+/* Estilo especial para o primeiro lugar */
+.primeiro-lugar {
+  background: linear-gradient(to right, #ffeb3b, #fff176);
+  border: 2px solid #fbc02d;
+  font-weight: bold;
+}
+
+/* Ícones alinhados com nome */
+.ranking-container li span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
