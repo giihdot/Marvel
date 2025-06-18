@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 // Importa a biblioteca md5 para gerar o hash de autenticação da API da Marvel
+// hash -> algoritmo que pega uma entrada (ou "mensagem") e gera uma saída de tamanho fixo
 import md5 from "md5";
 
 // Importa o arquivo de estilos CSS
@@ -29,6 +30,7 @@ const MarvelCharacters = () => {
     // Função assíncrona para buscar personagens na API da Marvel
     const fetchCharacters = async () => {
       // Gera o timestamp atual (necessário para a autenticação)
+      // timestamp -> representação de um momento específico no tempo, geralmente expressa como um número.
       const ts = new Date().getTime();
 
       // Gera o hash md5 (timestamp + chave privada + chave pública)
@@ -75,6 +77,8 @@ const MarvelCharacters = () => {
               <div className="imagem">
                 <img
                 // Monta a URL da imagem do personagem usando as propriedades `path` e `extension`
+                // path -> significa caminho de um arquivo ou recurso, usado para importar componentes, imagens, arquivos CSS, etc..
+                // extension -> A "extension" é o sufixo do nome de um arquivo que indica seu tipo — como .js, .jsx, .ts, .png, .json, etc.
                 // Exemplo de resultado: "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg"
                   src={`${char.thumbnail.path}.${char.thumbnail.extension}`}
                 // Define o texto alternativo da imagem com o nome do personagem
