@@ -10,10 +10,9 @@ function App() {
     <BrowserRouter>
       <nav className="naveg">
         <Link to="/"> MARVEL </Link>
-        <Link to="/favoritos"> FAVORITOS </Link>
+        {/* <Link to="/favoritos"> FAVORITOS </Link> */}
         <Link to="/herois"> HERÓIS </Link>
         <Link to="/buscaHerois"> BUSCA HEROIS </Link>
-        <Link to="/detalhes"> DETALHES HEROIS </Link>
         <Link to="/listadepersonagens"> LISTA DE PERSONAGENS </Link>
       </nav>
 
