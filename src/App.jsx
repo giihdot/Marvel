@@ -4,10 +4,13 @@ import Detalhes from "./Components/DetalhesHeroi";
 import Home from './Pages/Home';
 import ListaDePersonagens from "./Components/ListaPersonagem";
 import "./App.css";
+import './Components/Navbar.css'
+import Header from "./Components/Header";
 
 function App() {
   return (
     <BrowserRouter>
+    <Header/>
       <nav className="naveg">
         <Link to="/"> 🛡️ MARVEL </Link>
         <Link to="/herois"> HERÓIS </Link>
