@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 // import Favoritos from "./Pages/Favoritos"
+import Home from "./Pages/Home";
 import BuscaHerois from "./Components/BuscaHerois";
 import Detalhes from "./Components/DetalhesHeroi";
 import ListaDePersonagens from "./Components/ListaPersonagem";
@@ -9,8 +10,6 @@ import './Components/Navbar.css'
 import Header from "./Components/Header";
 
 
-<Route path="/portal" element={<PortalDimensional />} />
-
 function App() {
   return (
     <BrowserRouter>
@@ -18,17 +17,15 @@ function App() {
       <nav className="naveg">
         <Link to="/"> MARVEL </Link>
         {/* <Link to="/favoritos"> FAVORITOS </Link> */}
-        <Link to="/herois"> HERÓIS </Link>
-        <Link to="/buscaHerois"> BUSCA HEROIS </Link>
+        <Link to="/buscaHerois"> BUSCA HERÓIS </Link>
         <Link to="/listadepersonagens"> LISTA DE PERSONAGENS </Link>
         <Link to="/portal">PORTAL DIMENSIONAL</Link>
-        <Link path="/portal" element={<PortalDimensional />} />
     
       </nav>
 
       <Routes>
-        {/* <Route path="/" element={<Herois />} /> */}
         {/* <Route path="/favoritos" element={<Favoritos/>} /> */}
+        <Route path="/" element={<Home/> } />
         <Route path="/buscaHerois" element={<BuscaHerois />} />
         <Route path="/detalhes" element={<Detalhes />} />
         <Route path="/listadepersonagens" element={<ListaDePersonagens />} />
