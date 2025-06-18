@@ -1,18 +1,20 @@
+/* Container principal */
 .container {
   width: 90%;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 /* Título */
 .titulo {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.8rem;
   margin: 20px 0;
+  color: #d10000;
 }
 
 /* Barra de busca */
-.barra-busca {
+.busca-container {
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -21,102 +23,156 @@
 
 .input-busca {
   padding: 8px;
-  border: 2px solid #a00;
-  width: 300px;
-  border-radius: 4px;
+  width: 280px;
+  border-radius: 6px;
 }
 
-.btn-buscar,
-.btn-limpar {
+.btn {
   padding: 8px 16px;
-  background-color: #a00;
+  background-color: #d10000;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.3s;
 }
 
-.btn-buscar:hover,
-.btn-limpar:hover {
-  background-color: #d33;
+.btn:hover {
+  background-color: #a30000;
 }
 
-/* Mensagem de erro */
-.erro {
-  color: red;
+/* Mensagens */
+.mensagem {
   text-align: center;
 }
 
-/* Área dos heróis */
-.area-herois {
-  border: 2px solid #a00;
+.erro {
+  color: #d10000;
+  text-align: center;
+}
+
+/* Cards de heróis */
+.card-heroi,
+.card-favorito,
+.detalhe-card {
   padding: 20px;
+  margin-bottom: 30px;
 }
 
-.heroi {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 15px;
-  margin-bottom: 20px;
+.detalhe-card {
+  border: #d10000 solid 2px;
+  border-radius: 10px;
 }
 
-.heroi-img img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  background-color: #a00;
-  border-radius: 8px;
-}
-
-.heroi-info h3 {
-  margin: 0;
-}
-
-.heroi-info p {
-  margin: 6px 0;
-}
-
-/* Botão favoritar */
-.btn-favoritar {
-  background-color: #a00;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.btn-favoritar:hover {
-  opacity: 0.9;
-}
-
-.btn-favoritar.favoritado {
-  background-color: #4caf50;
-}
-
-/* Área dos favoritos */
-.area-favoritos {
-  border: 2px solid #a00;
-  padding: 20px;
-  margin-top: 30px;
-}
-
-.lista-favoritos {
+.lista-herois,
+.lista-favorito {
+  list-style: none;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
+  justify-content: center;
 }
 
-.fav-item {
-  width: 150px;
+.item-heroi,
+.item-favorito {
+  width: 35vw;
+  background-color: #f9f9f9;
+  border: 1px solid #d10000;
+  border-radius: 10px;
   text-align: center;
+  padding: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.fav-item img {
+.item-heroi:hover,
+.item-favorito:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.item-heroi img,
+.item-favorito img {
   width: 100%;
   border-radius: 8px;
+}
+
+/* Detalhes */
+.detalhe-card img {
+  width: 300px;
+  display: block;
+  margin: 0 auto 15px;
+  border-radius: 8px;
+}
+
+/* Títulos dos cards */
+.item-heroi h3,
+.item-favorito h4 {
+  margin: 10px 0;
+  width: 10vw;
+  color: #d10000;
+}
+
+/* Parágrafos nos cards */
+.item-heroi p {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 5px 0;
+}
+
+/* Container dos cards lado a lado */
+.card-conteudo {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+/* Imagem dos heróis */
+.card-conteudo img {
+  width: 10vw;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* Área de texto (informações) */
+.info-heroi {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  text-align: left;
+}
+
+.info-heroi h3 {
+  margin: 0;
+  color: #d10000;
+}
+
+.info-heroi p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.info-heroi button {
+  margin-top: 5px;
+  padding: 6px 10px;
+  background-color: #d10000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.info-heroi button:hover {
+  background-color: #a30000;
+}
+
+.card-column {
+  display: flex;
+  flex-direction: column;
 }
