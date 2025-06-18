@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 // import Favoritos from "./Pages/Favoritos"
-import BuscaHerois from "./Components/BuscaHerois"
-import Detalhes from "./Components/DetalhesHeroi"
-import ListaDePersonagens from "./Components/ListaPersonagem"
-import "./App.css"
+import BuscaHerois from "./Components/BuscaHerois";
+import Detalhes from "./Components/DetalhesHeroi";
+import ListaDePersonagens from "./Components/ListaPersonagem";
+import "./App.css";
 
 function App() {
   return (
@@ -19,12 +19,12 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<Herois />} /> */}
         {/* <Route path="/favoritos" element={<Favoritos/>} /> */}
-        <Route path="/buscaHerois" element={<BuscaHerois/>} />
-        <Route path="/detalhes" element={<Detalhes/>} />
-        <Route path="/listadepersonagens" element={<ListaDePersonagens/>} />
+        <Route path="/buscaHerois" element={<BuscaHerois />} />
+        <Route path="/detalhes" element={<Detalhes />} />
+        <Route path="/listadepersonagens" element={<ListaDePersonagens />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
-export default App
+export default App;
