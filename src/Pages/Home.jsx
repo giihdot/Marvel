@@ -2,7 +2,7 @@ import './Home.css'
 export default function Home() {
   return (
     <div className="home-container">
-      <h1 className="titulo">Bem-vindo ao MarvelVerse! 🦸‍♂️</h1>
+      <h1 className="titulo">BEM-VINDO AO MARVELVERSE! 🦸‍♂️</h1>
 
       <div className="conteudo">
         <div className="texto">
