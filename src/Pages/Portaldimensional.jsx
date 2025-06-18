@@ -9,10 +9,10 @@ export default function PortalDimensional() {
         <strong> página de detalhes de dois heróis distintos</strong>.
       </p>
       
-      <p>🚀 Encontre curiosidades em cada herói. Se não houver descrição, invente uma!</p>
+      <p>Encontre curiosidades em cada herói. Se não houver descrição, invente uma!</p>
 
       <div style={{ backgroundColor: "#f4f4f4", padding: "20px", borderRadius: "10px", marginTop: "20px" }}>
-        <h3>📌 Exemplo de Curiosidades:</h3>
+        <h3>Exemplo de Curiosidades:</h3>
         <ul style={{ textAlign: "left", maxWidth: "500px", margin: "auto" }}>
           <li><strong>Homem de Ferro:</strong> Gênio, bilionário, filantropo... e viciado em café.</li>
           <li><strong>Doutor Estranho:</strong> Já discutiu com a própria Capa da Levitação por 2 horas.</li>
