@@ -1,9 +1,13 @@
+// Importa o hook useState para controlar os estados no componente
 import { useState } from 'react';
+// Importa a biblioteca md5, usada para gerar o hash exigido pela API da Marvel
 import md5 from 'md5';
 
+// Chaves da API da Marvel (pode deixar no código nesse projeto)
 const publicKey = '3e8bef26ce91bf500ab574be3cc76285';
 const privateKey = '450a95fff14e78a0aa9686b4d4889bfd52e90435';
 
+// Função principal do componente, exportada como padrão
 export default function BuscaHeroi() {
   // Estado para guardar o texto digitado no input
   const [busca, setBusca] = useState('');
