@@ -95,7 +95,7 @@ export default function BuscaHerois() {
         <input
           className="input-busca"
           type="text"
-          placeholder="Digite o nome do herói"
+          placeholder="Digite o nome do herói (EM INGLÊS)"
           value={busca}
           onChange={(e) => setBusca(e.target.value)}
         />
@@ -106,7 +106,7 @@ export default function BuscaHerois() {
           Limpar Cofre!
         </button>
         <button className="btn" onClick={() => buscarHerois("Spi")}>
-          🔍 Missão "Spi"
+           Missão "Spi" 
         </button>
       </div>
 
