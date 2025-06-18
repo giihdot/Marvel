@@ -3,7 +3,11 @@ import BuscaHerois from "./Components/BuscaHerois";
 import Detalhes from "./Components/DetalhesHeroi";
 import Home from './Pages/Home';
 import ListaDePersonagens from "./Components/ListaPersonagem";
+import PortalDimensional from "./Pages/Portaldimensional";
 import "./App.css";
+
+
+<Route path="/portal" element={<PortalDimensional />} />
 
 function App() {
   return (
@@ -13,6 +17,9 @@ function App() {
         <Link to="/herois"> HERÓIS </Link>
         <Link to="/buscaHerois"> BUSCA HERÓIS </Link>
         <Link to="/listadepersonagens"> LISTA DE PERSONAGENS </Link>
+        <Link to="/portal">PORTAL DIMENSIONAL</Link>
+        <Route path="/portal" element={<PortalDimensional />} />
+    
       </nav>
 
       <Routes>
@@ -20,6 +27,7 @@ function App() {
         <Route path="/buscaHerois" element={<BuscaHerois />} />
         <Route path="/detalhes" element={<Detalhes />} />
         <Route path="/listadepersonagens" element={<ListaDePersonagens />} />
+        <Route path="/portal" element={<PortalDimensional />} />
       </Routes>
     </BrowserRouter>
   );
