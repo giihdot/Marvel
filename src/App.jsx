@@ -16,7 +16,7 @@ function App() {
       <nav className="naveg">
         <Link to="/"> MARVEL </Link>
         {/* <Link to="/favoritos"> FAVORITOS </Link> */}
-        <Link to="/buscaHerois"> BUSCA HEROIS </Link>
+        <Link to="/buscaHerois"> BUSCA HERÓIS </Link>
         <Link to="/listadepersonagens"> LISTA DE PERSONAGENS </Link>
         <Link to="/portal">PORTAL DIMENSIONAL</Link>
         <Link path="/portal" element={<PortalDimensional />} />
