@@ -41,8 +41,8 @@ export default function BuscaHerois() {
 
   
   // Função para alternar o status de favorito de um herói
-  function toggleFavorito(heroi) {
-    const existe = favoritos.find((fav) => fav.id === heroi.id); // Verifica se o herói já está nos favoritos
+  function Favorito(heroi) {
+    const existe = favoritos.find((fav) => fav.id === heroi.id); // Verifica / encontra se o herói já está nos favoritos 
     if (existe) {
       const novos = favoritos.filter((fav) => fav.id !== heroi.id); // Remove o herói dos favoritos
       salvarFavoritos(novos); // Salva os novos favoritos
@@ -132,8 +132,8 @@ export default function BuscaHerois() {
         </button>
       </div>
 
-      {carregando && <p className="mensagem">Carregando heróis...</p>} // Exibe mensagem de carregamento se estiver carregando
-      {erro && <p className="erro">{erro}</p>} // Exibe mensagem de erro se houver
+      {carregando && <p className="mensagem">Carregando heróis...</p>} {/* Exibe mensagem de carregamento se estiver carregando */}
+      {erro && <p className="erro">{erro}</p>} {/* Exibe mensagem de erro se houver*/}
 
       {heroiDetalhe && ( // Se houver detalhes do herói, renderiza o card de detalhes
         <div className="detalhe-card">
@@ -144,7 +144,7 @@ export default function BuscaHerois() {
           />
           <p>
             <strong>Descrição:</strong>{" "}
-            {heroiDetalhe.description || "Sem descrição disponível."} // Exibe a descrição do herói
+            {heroiDetalhe.description || "Sem descrição disponível."} {/* Exibe a descrição do herói*/}
           </p>
 
           <h3>Quadrinhos:</h3>
@@ -176,19 +176,19 @@ export default function BuscaHerois() {
                     src={`${heroi.thumbnail.path}.${heroi.thumbnail.extension}`} // Exibe a imagem do herói
                     alt={heroi.name} // Define o texto alternativo da imagem
                   />
-                  <h3>{heroi.name}</h3> // Exibe o nome do herói
+                  <h3>{heroi.name}</h3> {/*Exibe o nome do herói*/}
                     <p>
-                      <strong>ID:</strong> {heroi.id} // Exibe o ID do herói
+                      <strong>ID:</strong> {heroi.id} {/*Exibe o ID do herói*/}
                     </p>
                     </div>
                   <div className="info-heroi">
 
                     <p>
                       <strong>Descrição:</strong>{" "}
-                      {heroi.description || "Sem descrição disponível."} // Exibe a descrição do herói
+                      {heroi.description || "Sem descrição disponível."} {/*Exibe a descrição do herói*/}
                     </p>
-                    <button onClick={() => toggleFavorito(heroi)}>
-                      {estaFavorito(heroi.id) ? "Desfavoritar" : "Favoritar"} // Alterna entre "Favoritar" e "Desfavoritar"
+                    <button onClick={() => Favorito(heroi)}>
+                      {estaFavorito(heroi.id) ? "Desfavoritar" : "Favoritar"} {/*Alterna entre "Favoritar" e "Desfavoritar"*/}
                     </button>
                     <button onClick={() => setHeroiDetalhe(heroi)}>
                       Ver Detalhes
@@ -207,7 +207,7 @@ export default function BuscaHerois() {
           <ul className="lista-favorito">
             {favoritos.map((fav) => ( // Mapeia cada herói favorito
               <li key={fav.id} className="item-favorito">
-                <h4>{fav.name}</h4> // Exibe o nome do herói favorito
+                <h4>{fav.name}</h4> {/* Exibe o nome do herói favorito*/}
                 <img
                   src={`${fav.thumbnail.path}.${fav.thumbnail.extension}`} // Exibe a imagem do herói favorito
                   alt={fav.name} // Define o texto alternativo da imagem
