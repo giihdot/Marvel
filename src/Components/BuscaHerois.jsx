@@ -12,8 +12,8 @@ export default function BuscaHerois() {
   const [favoritos, setFavoritos] = useState([]);
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState('');
+  const [heroiDetalhe, setHeroiDetalhe] = useState(null);
 
-  // Carregar favoritos do localStorage ao iniciar o app
   useEffect(() => {
     const favoritosSalvos = localStorage.getItem(STORAGE_KEY);
     if (favoritosSalvos) {
@@ -21,22 +21,17 @@ export default function BuscaHerois() {
     }
   }, []);
 
-  // Função para salvar favoritos no localStorage
   function salvarFavoritos(novosFavoritos) {
     setFavoritos(novosFavoritos);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(novosFavoritos));
   }
 
-  // Favoritar/desfavoritar um herói
   function toggleFavorito(heroi) {
     const existe = favoritos.find(fav => fav.id === heroi.id);
-
     if (existe) {
-      // Remove dos favoritos
       const novos = favoritos.filter(fav => fav.id !== heroi.id);
       salvarFavoritos(novos);
     } else {
-      // Adiciona aos favoritos só com id, nome e thumbnail (pedido no desafio)
       const novoFav = {
         id: heroi.id,
         name: heroi.name,
@@ -46,20 +41,20 @@ export default function BuscaHerois() {
     }
   }
 
-  // Limpar o cofre (localStorage e estado)
   function limparCofre() {
     localStorage.removeItem(STORAGE_KEY);
     setFavoritos([]);
-    alert('Todos os arquivos confidenciais foram destruídos 💣');
+    alert('Todos os arquivos confidenciais foram destruídos. Nick Fury agradece!');
   }
 
-  async function buscar() {
-    const termo = busca.trim();
+  async function buscarHerois(termoBusca) {
+    const termo = termoBusca.trim();
     if (!termo) return;
 
     setCarregando(true);
     setErro('');
     setHerois([]);
+    setHeroiDetalhe(null);
 
     const ts = new Date().getTime();
     const hash = md5(ts + privateKey + publicKey);
@@ -85,7 +80,6 @@ export default function BuscaHerois() {
     }
   }
 
-  // Função que diz se o herói está favoritado
   function estaFavorito(id) {
     return favoritos.some(fav => fav.id === id);
   }
@@ -93,59 +87,64 @@ export default function BuscaHerois() {
   return (
     <div>
       <h1>Busca de Heróis da Marvel</h1>
-      <input
-        type="text"
-        placeholder="Digite o nome do herói"
-        value={busca}
-        onChange={e => setBusca(e.target.value)}
-        style={{ padding: '8px', width: '70%', marginRight: '10px' }}
-      />
-      <button onClick={buscar} style={{ padding: '8px', marginRight: '10px' }}>
-        Buscar
-      </button>
-      <button onClick={limparCofre} style={{ padding: '8px', backgroundColor: '#d33', color: 'white' }}>
-        Limpar Cofre!
-      </button>
+
+      <div>
+        <input
+          type="text"
+          placeholder="Digite o nome do herói"
+          value={busca}
+          onChange={e => setBusca(e.target.value)}
+        />
+        <button onClick={() => buscarHerois(busca)}>Buscar</button>
+        <button onClick={limparCofre}>Limpar Cofre!</button>
+        <button onClick={() => buscarHerois('Spi')}>🔍 Missão "Spi"</button>
+      </div>
 
       {carregando && <p>Carregando heróis...</p>}
-      {erro && <p style={{ color: 'red' }}>{erro}</p>}
+      {erro && <p>{erro}</p>}
 
-      {/* Lista de heróis da busca */}
-      {herois.length > 0 && (
-        <div style={{ marginTop: '20px' }}>
+      {heroiDetalhe && (
+        <div>
+          <h2>{heroiDetalhe.name}</h2>
+          <img
+            src={`${heroiDetalhe.thumbnail.path}.${heroiDetalhe.thumbnail.extension}`}
+            alt={heroiDetalhe.name}
+          />
+          <p><strong>Descrição:</strong> {heroiDetalhe.description || 'Sem descrição disponível.'}</p>
+
+          <h3>Quadrinhos:</h3>
+          <ul>
+            {heroiDetalhe.comics.items.length > 0 ? (
+              heroiDetalhe.comics.items.map((comic, idx) => <li key={idx}>{comic.name}</li>)
+            ) : (
+              <li>Sem quadrinhos disponíveis.</li>
+            )}
+          </ul>
+
+          <button onClick={() => setHeroiDetalhe(null)}>Fechar Detalhes</button>
+        </div>
+      )}
+
+      {herois.length > 0 && !heroiDetalhe && (
+        <div>
           <h2>Heróis encontrados: {herois.length}</h2>
-          <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+          <ul>
             {herois.map(heroi => (
-              <li
-                key={heroi.id}
-                style={{
-                  marginBottom: '30px',
-                  borderBottom: '1px solid #ccc',
-                  paddingBottom: '15px',
-                }}
-              >
+              <li key={heroi.id}>
                 <h3>{heroi.name}</h3>
                 <img
                   src={`${heroi.thumbnail.path}.${heroi.thumbnail.extension}`}
                   alt={heroi.name}
-                  style={{ width: '150px', borderRadius: '8px' }}
                 />
                 <p><strong>ID:</strong> {heroi.id}</p>
                 <p><strong>Descrição:</strong> {heroi.description || 'Sem descrição disponível.'}</p>
 
-                <button
-                  onClick={() => toggleFavorito(heroi)}
-                  style={{
-                    padding: '8px 12px',
-                    backgroundColor: estaFavorito(heroi.id) ? '#4caf50' : '#007bff',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    marginTop: '10px',
-                  }}
-                >
+                <button onClick={() => toggleFavorito(heroi)}>
                   {estaFavorito(heroi.id) ? 'Desfavoritar' : 'Favoritar'}
+                </button>
+
+                <button onClick={() => setHeroiDetalhe(heroi)}>
+                  Ver Detalhes
                 </button>
               </li>
             ))}
@@ -153,31 +152,22 @@ export default function BuscaHerois() {
         </div>
       )}
 
-      {/* Lista de heróis favoritos */}
       {favoritos.length > 0 && (
-        <div style={{ marginTop: '40px' }}>
+        <div>
           <h2>Heróis Favoritos ({favoritos.length})</h2>
-          <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+          <ul>
             {favoritos.map(fav => (
-              <li
-                key={fav.id}
-                style={{
-                  marginBottom: '20px',
-                  borderBottom: '1px solid #ccc',
-                  paddingBottom: '10px',
-                }}
-              >
+              <li key={fav.id}>
                 <h4>{fav.name}</h4>
                 <img
                   src={`${fav.thumbnail.path}.${fav.thumbnail.extension}`}
                   alt={fav.name}
-                  style={{ width: '100px', borderRadius: '8px' }}
                 />
               </li>
             ))}
           </ul>
         </div>
       )}
-    </div>
-  );
+    </div>
+  );
 }
