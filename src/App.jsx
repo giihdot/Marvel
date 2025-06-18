@@ -22,7 +22,7 @@ function App() {
         <Link to="/buscaHerois"> BUSCA HEROIS </Link>
         <Link to="/listadepersonagens"> LISTA DE PERSONAGENS </Link>
         <Link to="/portal">PORTAL DIMENSIONAL</Link>
-        <Route path="/portal" element={<PortalDimensional />} />
+        <Link path="/portal" element={<PortalDimensional />} />
     
       </nav>
 
