@@ -110,7 +110,8 @@ export default function BuscaHerois() {
   // Renderiza o componente
   return (
     <div className="container">
-      <h1 className="titulo">Busca de Heróis da Marvel</h1>
+      <br/>
+      <h1 className="titulo"> BUSCA DE HERÓIS DA MARVEL </h1>
 
       <div className="busca-container">
         <input

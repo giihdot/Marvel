@@ -2,7 +2,7 @@ export default function Sobre() {
   return (
     <div style={{ padding: "30px", maxWidth: "800px", margin: "0 auto", fontFamily: "Arial, sans-serif" }}>
       <h1 style={{ fontSize: "2.5rem", color: "#e62429", marginBottom: "20px" }}>
-        🦸 Sobre o MarvelVerse
+        🦸 SOBRE O MARVELVERSE
       </h1>
 
       <p style={{ fontSize: "1.2rem", lineHeight: "1.8" }}>
@@ -11,7 +11,7 @@ export default function Sobre() {
         <br /><br />
       </p>
 
-      <h2 style={{ fontSize: "1.8rem", color: "#e62429", marginTop: "30px" }}>🚀 O que aprendemos:</h2>
+      <h2 style={{ fontSize: "1.8rem", color: "#e62429", marginTop: "30px" }}>🚀 O QUE APRENDEMOS:</h2>
       <ul style={{ fontSize: "1.1rem", lineHeight: "1.6", marginLeft: "20px" }}>
         <li>Como usar <strong>React</strong> com <code>useState</code>, <code>useEffect</code> e rotas dinâmicas</li>
         <li>Como consumir APIs reais e tratar respostas (inclusive quando o JSON aparece misteriosamente vazio 👀)</li>
@@ -21,7 +21,7 @@ export default function Sobre() {
         <li>Como pensar como devs de verdade: testando, errando, corrigindo, rindo... e seguindo em frente!</li>
       </ul>
 
-      <h2 style={{ fontSize: "1.8rem", color: "#e62429", marginTop: "30px" }}>🌟 Curiosidades Nerds:</h2>
+      <h2 style={{ fontSize: "1.8rem", color: "#e62429", marginTop: "30px" }}>🌟 CURIOSIDADES NERDS:</h2>
       <p style={{ fontSize: "1.1rem", lineHeight: "1.7" }}>
         💡 Usamos a API oficial da Marvel para trazer dados reais de personagens como Homem de Ferro, Capitão América,
         Feiticeira Escarlate e muitos outros!<br />
@@ -29,14 +29,14 @@ export default function Sobre() {
         😂 E sim, criamos descrições como "Herói misterioso, só aparece quando não tem bug no código". Porque humor também é um superpoder.
       </p>
 
-      <h2 style={{ fontSize: "1.8rem", color: "#e62429", marginTop: "30px" }}>🫱🏻‍🫲🏽 Trabalho em Equipe</h2>
+      <h2 style={{ fontSize: "1.8rem", color: "#e62429", marginTop: "30px" }}>🫱🏻‍🫲🏽 TRABALHO EM EQUIPE</h2>
       <p style={{ fontSize: "1.2rem", lineHeight: "1.7" }}>
         Mesmo com diferentes estilos e ritmos, nossa equipe conseguiu dividir as tarefas, ajudar uns aos outros,
         revisar códigos e trazer ideias novas. Aprendemos que na programação — assim como nos Vingadores —
         cada um tem um papel fundamental, e juntos somos mais fortes!
       </p>
 
-      <h2 style={{ fontSize: "1.8rem", color: "#e62429", marginTop: "30px" }}>💬 Depoimento final:</h2>
+      <h2 style={{ fontSize: "1.8rem", color: "#e62429", marginTop: "30px" }}>💬 DEPOIMENTO FINAL:</h2>
       <blockquote style={{
         fontStyle: "italic",
         color: "#555",
