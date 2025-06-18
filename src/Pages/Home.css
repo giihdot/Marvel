@@ -1,0 +1,44 @@
+.home-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Título */
+.titulo {
+  text-align: center;
+  font-size: 3rem;
+  color: #e62429;
+  margin-bottom: 30px;
+}
+
+/* Conteúdo em duas colunas */
+.conteudo {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Texto */
+.texto {
+  flex: 2;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Imagens */
+.imagens {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.imagens img {
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid #e62429;
+}
+
