@@ -22,7 +22,7 @@ export default function Home() {
             <br />
             <br />
             Em segundo lugar, a Marvel é mestre em construir histórias épicas e
-            interconectadas. O <strong>Universo Cinematográfico Marvel (MCU)</strong>
+            interconectadas. O <strong>Universo Cinematográfico Marvel (MCU) </strong>
             é o maior exemplo disso, com filmes que se conectam e culminam em eventos
             gigantescos, como as sagas de Thanos. Essa interconexão cria uma sensação
             de um mundo vivo e em constante evolução, onde cada história tem um impacto

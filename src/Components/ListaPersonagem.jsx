@@ -43,7 +43,7 @@ const MarvelCharacters = () => {
 // Retorna o conteúdo com os personagens da Marvel
   return (
     <div>
-      <h1>Personagens da Marvel</h1>
+      <h1> PERSONAGENS DA MARVEL </h1>
       <ul>
         {characters.map((char) => (
           <li>
