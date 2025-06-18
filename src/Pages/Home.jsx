@@ -1,5 +1,7 @@
+
 export default function Home() {
   return (
+    <>
     <div
       style={{
         textAlign: "center",
@@ -39,5 +41,6 @@ export default function Home() {
         style={{ marginTop: "30px", maxWidth: "300px", borderRadius: "12px" }}
       />
     </div>
+    </>
   );
 }

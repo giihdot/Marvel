@@ -16,7 +16,6 @@ const MarvelCharacters = () => {
     const fetchCharacters = async () => {
       // Gera um timestamp atual, exigido pela Marvel
       const ts = new Date().getTime();
-      // Gera o hash md5 com base no timestamp, chave privada e chave pública
       const hash = md5(ts + PRIVATE_KEY + PUBLIC_KEY);
       // Monta a URL da requisição com os parâmetros obrigatórios e o limite de 20 personagens
       const url = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&limit=20`;
