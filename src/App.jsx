@@ -9,18 +9,16 @@ import './Components/Navbar.css'
 import Header from "./Components/Header";
 
 
-<Route path="/portal" element={<PortalDimensional />} />
-
 function App() {
   return (
     <BrowserRouter>
     <Header/>
       <nav className="naveg">
-        <Link to="/"> 🛡️ MARVEL </Link>
+        <Link to="/">  MARVEL </Link>
         <Link to="/buscaHerois"> BUSCA HERÓIS </Link>
         <Link to="/listadepersonagens"> LISTA DE PERSONAGENS </Link>
         <Link to="/portal">PORTAL DIMENSIONAL</Link>
-        <Route path="/portal" element={<PortalDimensional />} />
+        <Link path="/portal" element={<PortalDimensional />} />
     
       </nav>
 
